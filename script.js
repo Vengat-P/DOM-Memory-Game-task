@@ -6,15 +6,15 @@ const msg = document.getElementById("msg")
 //! handleload function
 const handlestart = () => {
   cards.forEach((element) => {
-    const num = [...Array(cards.length).keys()];
+    const final = [...Array(cards.length).keys()];
     const random = Math.floor(Math.random() * cards.length);
-    element.style.order = num[random];
+    element.style.order = final[random];
   });
 };
 
 //! card flip function
 flippedcards();
-function flippedcards() {
+function flippedcards(){
   for (let i = 0; i < cards.length; i++) {
     cards[i].addEventListener("click", () => {
       front[i].classList.add("flipcard");
@@ -49,13 +49,13 @@ function checkpairs(cardOne, cardTwo) {
   }
 }
 
-//! winning conditions
+//! winning message
 
 function winning(){
-  msg.innerHTML=" 🎉You Won the Game🎉 CLICK Restart "
+  msg.innerHTML=" 🎉You Won the Game🎉"
 }
 //! restart functions
-
+retsartgame();
 function retsartgame(){
   for(let i=0;i<cards.length;i++ ){
   retsart.addEventListener("click",()=>{
@@ -65,10 +65,3 @@ function retsartgame(){
 })
 }
 }
-/*
-//! handle restart function
-const handlerestart = () => {
-  
-  
-}
-  */
