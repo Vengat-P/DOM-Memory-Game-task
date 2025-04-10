@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
+    <title>Memory Game</title>
+  </head>
+  <body onload="handlestart()">
+    <div class="container">
+      <div class="header" id="header">
+        <h1>Memory Game</h1>
+        <button type="button" id="restart" onclick="handlerestart()">Restart</button>
+      </div>
+      <div class="board">
+        <div class="cards">
+          <div class="front" data-set="1"><img src="images/pairs/1.png" alt="1"></div>
+          <div class="back"></div>
+        </div>
+        <div class="cards">
+          <div class="front" data-set="1"><img src="images/pairs/2.png" alt="1"></div>
+          <div class="back"></div>
+        </div>
+        <div class="cards">
+          <div class="front" data-set="2"><img src="images/pairs/3.png" alt="1"></div>
+          <div class="back"></div>
+        </div>
+        <div class="cards">
+          <div class="front" data-set="2"><img src="images/pairs/4.png" alt="1"></div>
+          <div class="back"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
