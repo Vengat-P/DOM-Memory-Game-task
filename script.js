@@ -1,19 +1,74 @@
-const heading = document.getElementById("header");
-const restart = document.getElementById("restart");
-
+const cards = document.querySelectorAll(".cards");
+const front = document.querySelectorAll(".front");
+const retsart = document.getElementById("restart");
+const msg = document.getElementById("msg")
 
 //! handleload function
-
 const handlestart = () => {
-  let set1 = [
-    
-  ];
-  const final = [...set1, ...set1];
-  const suffule = Math.floor(Math.random() * (final.length - 1));
-}
-//! handle restart function
+  cards.forEach((element) => {
+    const num = [...Array(cards.length).keys()];
+    const random = Math.floor(Math.random() * cards.length);
+    element.style.order = num[random];
+  });
+};
 
 //! card flip function
-
+flippedcards();
+function flippedcards() {
+  for (let i = 0; i < cards.length; i++) {
+    cards[i].addEventListener("click", () => {
+      front[i].classList.add("flipcard");
+      const flippedcard = document.querySelectorAll(".flipcard");
+      if (flippedcard.length === 2) {
+        checkpairs(flippedcard[0], flippedcard[1]);
+      }
+    });
+  }
+}
 
 //! check pairs
+
+function checkpairs(cardOne, cardTwo) {
+  if (cardOne.dataset.set === cardTwo.dataset.set) {
+    cardOne.classList.remove("flipcard");
+    cardTwo.classList.remove("flipcard");
+
+    cardOne.classList.add("matched");
+    cardTwo.classList.add("matched");
+    const matchedcards = document.querySelectorAll(".matched");
+    if(matchedcards.length === cards.length){
+      winning();
+      retsartgame();
+    }
+
+  } else {
+    setTimeout(() => {
+      cardOne.classList.remove("flipcard");
+      cardTwo.classList.remove("flipcard");
+    }, 500);
+  }
+}
+
+//! winning conditions
+
+function winning(){
+  msg.innerHTML=" 🎉You Won the Game🎉 CLICK Restart "
+}
+//! restart functions
+
+function retsartgame(){
+  for(let i=0;i<cards.length;i++ ){
+  retsart.addEventListener("click",()=>{
+    front[i].classList.remove("matched")
+    handlestart();
+    msg.innerHTML="";
+})
+}
+}
+/*
+//! handle restart function
+const handlerestart = () => {
+  
+  
+}
+  */
